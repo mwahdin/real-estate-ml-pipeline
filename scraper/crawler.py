@@ -61,3 +61,15 @@ def load_pagination():
         except json.JSONDecodeError:
             print("Pagination file is corrupted.")
             return None
+    all_rows = load_dataset()
+
+    seen_tokens = {
+        row["token"]
+        for row in all_rows
+    }
+
+    pagination = load_pagination()
+
+    if pagination:
+        payload["pagination_data"] = pagination
+
