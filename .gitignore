@@ -11,3 +11,6 @@ models/
 .idea/
 
 .env
+data/
+*.csv
+*.json
