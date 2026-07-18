@@ -73,3 +73,12 @@ def load_pagination():
     if pagination:
         payload["pagination_data"] = pagination
 
+        while True:
+            try:
+                data = client.search(payload)
+                break
+            except Exception as e:
+                print(f"Search Error: {e}")
+                print("Retrying in 30 sec...")
+                time.sleep(30)
+
