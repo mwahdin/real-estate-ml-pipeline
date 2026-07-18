@@ -82,3 +82,7 @@ def load_pagination():
                 print("Retrying in 30 sec...")
                 time.sleep(30)
 
+                    if len(all_rows) % AUTOSAVE_EVERY == 0:
+                        save_dataset(all_rows)
+                        save_pagination(payload["pagination_data"])
+                        print(f"Autosaved {len(all_rows)} posts.")
